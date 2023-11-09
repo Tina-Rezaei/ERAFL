@@ -47,7 +47,7 @@ def read_simulation_config(path):
 
 
 if __name__ == '__main__':
-    config_params_path = "../General_parameters.txt"
+    config_params_path = "../simulation_config.txt"
     config_params = read_simulation_config(config_params_path)
 
     model_path = f"./test_models"
