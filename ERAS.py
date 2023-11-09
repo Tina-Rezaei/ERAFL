@@ -12,7 +12,7 @@ def rule_offloaded_data(model, i):
 
 
 def time_budget1(model, i):
-    return model.D[i] / model.B[i] + model.N_ie[i] * (model.D[i] - model.D_o[i]) * model.N_ic[i] / model.F[i] + \
+    return model.D[i] / model.B[i] + model.e[i] * (model.D[i] - model.D_o[i]) * model.Z[i] / model.F[i] + \
         (model.M[i] / model.bB[i]) <= model.t[i]
 
 
@@ -50,7 +50,7 @@ def computation_allocation(tasks_ids, total_cpu_cycles):
 def eras(constant_params, range_params):
     bandwidth_budget, backhaul_bandwidth_budget, cpu_cycle_frequency = constant_params
     tasks_data_size, tasks_time_budget, tasks_computation_per_bit, tasks_epoch_number, tasks_model_size, \
-        tasks_big_constant, tasks_privacy_score, tasks_offloading_state, tasks_ids = range_params
+        tasks_privacy_score, tasks_offloading_state, tasks_ids = range_params
 
     model = pyo.ConcreteModel()
 
@@ -61,9 +61,9 @@ def eras(constant_params, range_params):
 
     model.t = pyo.Param(model.i, initialize=tasks_time_budget)
 
-    model.N_ic = pyo.Param(model.i, initialize=tasks_computation_per_bit)
+    model.Z = pyo.Param(model.i, initialize=tasks_computation_per_bit)
 
-    model.N_ie = pyo.Param(model.i, initialize=tasks_epoch_number)
+    model.e = pyo.Param(model.i, initialize=tasks_epoch_number)
 
     model.M = pyo.Param(model.i, initialize=tasks_model_size)
 
