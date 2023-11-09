@@ -1,0 +1,13 @@
+comp_rsc,2000
+bandwidth,150
+backhaul,32
+data_size_l,0.08
+data_size_u,200
+time_budget_l,60
+time_budget_u,300
+comp_per_bit_l,100
+comp_per_bit_u,200
+epoch_l,1
+epoch_u,10
+model_size_l,3
+model_size_u,100
