@@ -46,6 +46,7 @@ def read_simulation_config(path):
     return params
 
 
+
 if __name__ == '__main__':
     config_params_path = "../simulation_config.txt"
     config_params = read_simulation_config(config_params_path)
